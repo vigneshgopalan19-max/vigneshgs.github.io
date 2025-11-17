@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vignesh GS | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Vignesh GS - Aspiring Software Engineer & Trainee Engineer." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #050816;
+      --bg-soft: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --border-soft: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
+      --radius-lg: 1.5rem;
+      --radius-md: 0.9rem;
+      --transition-fast: 180ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1d3355 0, #020617 40%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.88), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #a5b4fc 0, #38bdf8 35%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.25), transparent 60%);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.25);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle is {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.7rem;
+      max-width: 32rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.7rem;
+      max-width: 32rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #0b1120;
+      box-shadow: 0 16px 40px rgba(56,189,248,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 55px rgba(56,189,248,0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(15,23,42,0.9);
+      border-color: var(--border-soft);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15,23,42,1);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: rgba(15,23,42,0.9);
+    }
+
+    /* Hero card */
+    .hero-card {
+      border-radius: 1.8rem;
+      padding: 1.3rem 1.3rem 1.4rem;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.18), transparent 56%),
+                  radial-gradient(circle at 100% 0, rgba(129,140,248,0.16), transparent 55%),
+                  rgba(15,23,42,0.96);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .glow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #facc15;
+      box-shadow: 0 0 0 5px rgba(250,204,21,0.25);
+    }
+
+    .hero-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(148,163,184,0.7), transparent);
+      margin: 0.4rem 0 0.2rem;
+    }
+
+    .hero-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-details span {
+      display: block;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-details strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-size: 0.7rem;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56,189,248,0.6);
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0 0;
+    }
+
+    .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-top: 0.25rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3.5fr) minmax(0, 2.5fr);
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 1.2rem 1.2rem 1.25rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-list {
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+      color: var(--text-main);
+    }
+
+    .about-list li {
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      margin-top: 0.28rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-category h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-chip {
+      font-size: 0.75rem;
+      padding: 0.26rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+      font-size: 0.72rem;
+    }
+
+    .project-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+    }
+
+    /* Experience */
+    .timeline {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .timeline-item {
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-role {
+      font-weight: 500;
+    }
+
+    .timeline-company {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-details {
+      margin-top: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-details li {
+      margin-left: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Contact */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2.4fr);
+      gap: 1.6rem;
+    }
+
+    .contact-list {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .contact-list strong {
+      color: var(--text-main);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    input, textarea {
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.5);
+      background: rgba(15,23,42,1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .about-grid,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav ul {
+        display: none;
+      }
+
+      header {
+        border-bottom: none;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .card {
+        padding: 1rem 0.95rem 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge">VG</div>
+        <span>Vignesh&nbsp;GS</span>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="container">
+    <section class="hero" id="home">
+      <div>
+        <div class="hero-tag">
+          <span class="dot"></span>
+          <span>Open to trainee / fresher roles</span>
+        </div>
+        <h1>
+          Hi, I’m <span>Vignesh</span> 👋<br />
+          Aspiring Software & Trainee Engineer
+        </h1>
+        <p class="hero-subtitle">
+          I’m currently pursuing my Bachelor of Engineering and building a strong
+          foundation in <strong>Core Java, HTML, CSS, and SQL</strong>. I enjoy
+          solving problems and creating simple, clean web experiences.
+        </p>
+        <div class="hero-buttons">
+          <!-- TODO: Put your real resume link -->
+          <a href="#" class="btn btn-primary">Download Resume</a>
+          <a href="#projects" class="btn btn-ghost">View Projects</a>
+        </div>
+        <div class="hero-meta">
+          <span>📍 Based in India</span>
+          <span>🎓 Engineering student</span>
+          <span>💼 Open for internships & fresher roles</span>
+        </div>
+      </div>
+
+      <!-- Hero Profile Card -->
+      <aside class="hero-card" aria-label="Profile summary">
+        <div class="hero-card-header">
+          <div>
+            <div class="hero-name">Vignesh GS</div>
+            <div class="hero-role">Trainee Engineer (Fresher)</div>
+          </div>
+          <div class="pill">
+            <span class="glow-dot"></span>
+            <span>Open to trainee / fresher roles</span>
+          </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-details">
+          <div>
+            <span>Degree</span>
+            <strong>Bachelor of Engineering (Pursuing)</strong>
+          </div>
+          <div>
+            <span>Institute</span>
+            <strong>Sathyabama Institute of Science & Technology</strong>
+          </div>
+          <div>
+            <span>Focus</span>
+            <strong>Core Java • Web basics</strong>
+          </div>
+          <div>
+            <span>Looking for</span>
+            <strong>Trainee / entry-level roles</strong>
+          </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-chip-row">
+          <span class="chip">Java</span>
+          <span class="chip">HTML &amp; CSS</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Problem Solving</span>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-heading">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Who I am</h2>
+        <p class="section-sub">
+          A motivated engineering student who is shifting into the software side,
+          learning step by step and applying concepts through small projects and internships.
+        </p>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <p class="about-text">
+            I’m currently pursuing my Bachelor of Engineering at
+            <strong>Sathyabama Institute of Science and Technology</strong>.  
+            I enjoy understanding how things work and converting ideas into working
+            solutions using code.
+          </p>
+          <ul class="about-list">
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Building a strong base in <strong>Core Java, HTML, CSS, and SQL</strong>.
+              </div>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Comfortable with <strong>basic programming, debugging, and problem solving</strong>.
+              </div>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Eager to learn from real-world projects, work in teams, and grow as a software engineer.
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 0.9rem; margin-bottom: 0.7rem;">Quick info</h3>
+          <div class="tag-grid">
+            <span class="tag">Bachelor of Engineering (Pursuing)</span>
+            <span class="tag">Trainee / Fresher</span>
+            <span class="tag">Core Java</span>
+            <span class="tag">HTML &amp; CSS</span>
+            <span class="tag">SQL basics</span>
+            <span class="tag">Team player</span>
+            <span class="tag">Fast learner</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-heading">
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">What I work with</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="card skill-category">
+          <h3>Programming &amp; Backend</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Core Java</span>
+            <span class="skill-chip">OOP basics</span>
+            <span class="skill-chip">SQL (CRUD)</span>
+          </div>
+        </div>
+        <div class="card skill-category">
+          <h3>Web</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">HTML5</span>
+            <span class="skill-chip">CSS3</span>
+            <span class="skill-chip">Responsive layouts</span>
+          </div>
+        </div>
+        <div class="card skill-category">
+          <h3>Tools &amp; Practices</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Eclipse</span>
+            <span class="skill-chip">VS Code</span>
+            <span class="skill-chip">Debugging</span>
+          </div>
+        </div>
+        <div class="card skill-category">
+          <h3>Soft Skills</h3>
+          <div class="skill-chips">
+            <span class="skill-chip">Communication</span>
+            <span class="skill-chip">Teamwork</span>
+            <span class="skill-chip">Time management</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-heading">
+        <div class="section-label">Projects</div>
+        <h2 class="section-title">Things I’ve worked on</h2>
+        <p class="section-sub">
+          A collection of my academic, mini projects and personal web work focusing on mechanical systems,
+          design, sustainable solutions, and simple web development.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Portfolio Website -->
+        <article class="card project-card">
+          <h3>Portfolio Website</h3>
+          <p class="project-meta">HTML • CSS • Personal Project</p>
+          <p class="project-desc">
+            Designed and developed a responsive one-page portfolio website to showcase my
+            skills, education, internships, and mini projects. Focused on a clean layout,
+            readable typography, and a recruiter-friendly structure.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Responsive Design</span>
+          </div>
+        </article>
+
+        <!-- Project 1: Go-Kart Steering System -->
+        <article class="card project-card">
+          <h3>Go-Kart Steering System</h3>
+          <p class="project-meta">Mini Project • Mechanical Design</p>
+          <p class="project-desc">
+            Designed and studied the steering system of a go-kart, focusing on proper
+            geometry, maneuverability, and driver control. Worked on understanding
+            the linkages, turning radius, and basic vehicle dynamics.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Steering Geometry</span>
+            <span class="project-tag">Vehicle Dynamics</span>
+            <span class="project-tag">Mechanical Design</span>
+          </div>
+        </article>
+
+        <!-- Project 2: Solar Powered Grass Cutter -->
+        <article class="card project-card">
+          <h3>Solar Powered Grass Cutter</h3>
+          <p class="project-meta">Mini Project • Sustainable System</p>
+          <p class="project-desc">
+            Conceptualized a grass cutting system powered by solar energy instead of
+            conventional fuel. The project focused on reducing pollution, using renewable
+            energy, and improving efficiency for small-scale lawn maintenance.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Solar Energy</span>
+            <span class="project-tag">Green Technology</span>
+            <span class="project-tag">Mechanical System</span>
+          </div>
+        </article>
+
+        <!-- Project 3: Biodiesel from Waste Cooking Oil -->
+        <article class="card project-card">
+          <h3>Biodiesel from Waste Cooking Oil</h3>
+          <p class="project-meta">Mini Project • Renewable Fuel</p>
+          <p class="project-desc">
+            A study-based project on producing biodiesel from waste cooking oil.
+            Explored the basic process, benefits, and how this can convert kitchen
+            waste into a cleaner alternative fuel, supporting sustainable energy.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Biodiesel</span>
+            <span class="project-tag">Waste to Energy</span>
+            <span class="project-tag">Sustainability</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-heading">
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Internships &amp; Learning</h2>
+        <p class="section-sub">
+          Short internships and training where I got exposure to real-world work
+          and improved my basics.
+        </p>
+      </div>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <div class="timeline-role">Web Development Intern</div>
+                <div class="timeline-company">Combo Square</div>
+              </div>
+              <div class="timeline-date">Aug 2025-Aug 2025</div>
+            </div>
+            <ul class="timeline-details">
+              <li>Worked on a simple portfolio website using HTML &amp; CSS.</li>
+              <li>Understood basic web layout, styling, and clean structuring.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-top">
+              <div>
+                <div class="timeline-role">Intern</div>
+                <div class="timeline-company">GradTwin Technologies</div>
+              </div>
+              <div class="timeline-date">in process</div>
+            </div>
+            <ul class="timeline-details">
+              <li>Learnt fundamentals of web technologies and coding practices.</li>
+              <li>Improved confidence in working with beginner-level projects.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-heading">
+        <div class="section-label">Contact</div>
+        <h2 class="section-title">Let’s connect</h2>
+        <p class="section-sub">
+          Feel free to reach out for trainee engineer roles, internships, or just to say hi.
+        </p>
+      </div>
+      <div class="contact-layout">
+        <div class="card">
+         <div class="contact-list">
+  <div><strong>Email:</strong> <a href="mailto:vigneshgopalan19@gmail.com">vigneshgopalan19@gmail.com</a></div>
+  <div><strong>Phone:</strong> <a href="tel:+917904673215">+91 79046 73215</a></div>
+  <div><strong>Location:</strong> India</div>
+  <div>
+    <strong>LinkedIn:</strong>
+    <a href="https://www.linkedin.com/in/vignesh-gs-b79145282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+      linkedin.com/in/vignesh-gs-b79145282
+    </a>
+  </div>
+</div>
+
+        </div>
+        <div class="card">
+          <form class="contact-form">
+            <div class="field-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" />
+            </div>
+            <div class="field-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Write your message here..."></textarea>
+            </div>
+            <!-- This button won’t actually send without backend / form service -->
+            <button type="button" class="btn btn-primary">Send Message (Demo)</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Vignesh GS. Built with ❤️ using HTML &amp; CSS.
+  </footer>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
